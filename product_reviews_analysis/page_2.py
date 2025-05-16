@@ -10,10 +10,10 @@ st.set_page_config(layout="centered")  # Это возвращает боков�
 
 
 # Загружаем модель
-model = joblib.load('my data/logistic_regression/logistic_regression_sentiment.pkl')
+model = joblib.load('logistic_regression_sentiment.pkl')
 
 # Загружаем векторизатор
-vectorizer = joblib.load("my data/logistic_regression/tfidf_vectorizer.pkl")
+vectorizer = joblib.load("tfidf_vectorizer.pkl")
 
 
 
@@ -68,14 +68,14 @@ if new_review:
 # st.header('Рекомендательная модель')
 #
 # # Загружаем модель
-# model_knn_loaded = joblib.load('my data/knn_recommender/knn_recommender.pkl')
+# model_knn_loaded = joblib.load('knn_recommender.pkl')
 #
 # # Загружаем матрицу
-# ratings_sparse_csr_loaded = joblib.load('my data/knn_recommender/ratings_sparse_csr.pkl')
+# ratings_sparse_csr_loaded = joblib.load('ratings_sparse_csr.pkl')
 #
 # # Загружаем item_ids и маппинг
-# item_ids_loaded = joblib.load('my data/knn_recommender/item_ids.pkl')
-# item_to_index_loaded = joblib.load('my data/knn_recommender/item_to_index.pkl')
+# item_ids_loaded = joblib.load('item_ids.pkl')
+# item_to_index_loaded = joblib.load('item_to_index.pkl')
 #
 # #Загружаем датафрейм
 # df_normalized = pd.read_csv('my data/amazon_with_sentiment_reg.csv')
