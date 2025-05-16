@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import re
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import sklearn
@@ -8,6 +9,7 @@ import pandas as pd
 
 
 st.set_page_config(layout="centered")  # Это возвращает боковые отступы
+
 
 
 # Загружаем модель
@@ -22,6 +24,9 @@ st.header('Определение тональности отзыва')
 st.write('Точность прогноза 87%')
 
 lemmatizer = WordNetLemmatizer()
+
+# Загружаем NLTK данные (если их нет)
+nltk.download('stopwords')
 english_stopwords = set(stopwords.words('english'))
 
 def normalize_text(text):
