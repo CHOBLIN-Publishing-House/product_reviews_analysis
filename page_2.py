@@ -3,6 +3,7 @@ import joblib
 import re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+import sklearn
 import pandas as pd
 
 
