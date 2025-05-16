@@ -27,6 +27,8 @@ lemmatizer = WordNetLemmatizer()
 
 # Загружаем NLTK данные (если их нет)
 nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 english_stopwords = set(stopwords.words('english'))
 
 def normalize_text(text):
