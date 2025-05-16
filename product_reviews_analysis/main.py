@@ -1,7 +1,7 @@
 import streamlit as st
 
-page_1 = st.Page("page_1.py", title="Аналитика")
-page_2 = st.Page("page_2.py", title="Прогноз")
+page_1 = st.Page("page_1.py", title="BI-визуализация")
+page_2 = st.Page("page_2.py", title="ML-модель")
 
 
 # Set up navigation

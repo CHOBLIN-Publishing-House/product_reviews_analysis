@@ -1,2 +1,5 @@
 streamlit
 pandas
+joblib
+re
+nltk
