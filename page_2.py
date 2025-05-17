@@ -7,6 +7,16 @@ from nltk.stem import WordNetLemmatizer
 import sklearn
 import pandas as pd
 
+def to_text(x):
+  if x <= 0.2:
+    return('Товары - точные копии')
+  elif 0.2<x<=0.4:
+    return('Похожие товары')
+  elif 0.4 < x <= 0.7:
+    return('Непохожие товары')
+  else:
+    return('Очень непохожие товары')
+
 
 st.set_page_config(layout="centered")  # Это возвращает боковые отступы
 
@@ -127,7 +137,7 @@ def get_recommendations(product_id, n_recommendations=5, target_category=None):
     # Добавляем в рекомендации
     recommendations.append(rec_product_id)
     st.write(
-      f"{len(recommendations)}. {rec_product_id} | Категория: {rec_category} | Расстояние: {distances.flatten()[i]:.4f}")
+      f"{len(recommendations)}. {rec_product_id} | Категория: {rec_category} | {to_text(distances.flatten()[i])}")
 
     # Останавливаемся, когда наберём нужное количество
     if len(recommendations) >= n_recommendations:
@@ -142,6 +152,6 @@ new_recomendation = st.text_input('Введите ID товара')
 button_do1 = st.button('Вывести рекомендации')
 if (button_do1 and new_recomendation) or new_recomendation:
 
-  test_recommendation = 'B000GIWS7E'
+  test_recommendation = 'B000002UAO'
 
   get_recommendations(new_recomendation, n_recommendations=5)
