@@ -53,10 +53,7 @@ def normalize_text(text):
 new_review = st.text_area('Введите отзыв')
 
 test_review = """
-я не уверен, что могу порекомендовать этот телефон.
-камера не очень, экран тоже тусклый,
-но если вы не гонитесь за брендами и лучшими характеристиками -
-он несомненно вам подойдет
+in general, not bad. this book has strong characters and the plot is good
 """
 
 cleaned_review = normalize_text(new_review)
@@ -66,10 +63,11 @@ review_tfidf = vectorizer.transform([cleaned_review])
 pred = model.predict(review_tfidf)[0]
 score = model.predict_proba(review_tfidf).max()
 
-if new_review:
-  st.write("\n" + "-" * 50)
-  st.write("\nПредсказание (Logistic Regression):")
-  st.write(f"Класс: {pred} | Уверенность: {score:.2f}")
+button_do = st.button('Отправить')
+if (button_do and new_review) or new_review:
+  #st.write("\n" + "-" * 50)
+  st.write("\nПредсказание (Logistic Regression):" + f" класс: {pred}; уверенность: {score:.2f}")
+  #st.write(f"Класс: {pred} | Уверенность: {score:.2f}")
 
 
 #
